@@ -1,0 +1,168 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>Orange Report</title>
+
+    <style>
+    html, body, table {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        margin:0px;
+        padding:0;
+        border:0 none;
+    }
+
+    h1, h2 , h3, h4, h5 {
+       padding: 1px;
+       font-size:100%;
+    }
+
+    h1 {
+        color: white;
+        background-color: black;
+        padding: 4px;
+        margin-top: 12px;
+        margin-bottom: 6px;
+    }
+
+    h2 {
+        border-bottom: 1px solid black;
+        padding-left: 2px;
+    }
+
+    ul, table, p {
+        padding: 10px;
+    }
+
+    table {
+        margin-left: -6px;
+    }
+
+    span.timestamp {
+        position: absolute;
+        right: 40px;
+        color:#ddd;
+    }
+
+    div.selected, div.normal {
+        margin: 5px;
+    }
+
+    div.selected {
+        background: #ddd;
+    }
+    @media print{
+        div.selected {
+            background: inherit;
+        }
+        ::-webkit-input-placeholder {
+            color: transparent;
+        }
+    }
+
+    div.content {
+        margin-left: 15px;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 2px 6px 2px 6px;
+    }
+
+    th {
+        font-weight: bold;
+    }
+
+    @media screen {
+        td, th {
+            white-space: nowrap;
+        }
+    }
+
+    .caption {
+        text-align: center;
+        font-size: 90%;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+        max-height: 20cm;
+    }
+
+    span.legend-square {
+        width: 1em;
+        height: 1em;
+        margin-right: 6px;
+        display: inline-block;
+    }
+
+    span.legend-item {
+        margin-right: 24px;
+    }
+
+    textarea {
+        border: 1px solid silver;
+        font-style: italic;
+        width: 100%;
+        height: 4em;
+    }
+
+    .textwrapper {
+        padding: 15px;
+    }
+
+    div.normal textarea:invalid {
+        display: none;
+    }
+
+    div.selected textarea {
+        display: block;
+    }
+
+    @media print{
+        section.section, img {
+            page-break-inside: avoid;
+        }
+    }
+    </style>
+    <script>
+    function scrollToId(id) {
+        var sel_el = document.getElementById(id);
+        if (sel_el != undefined) {
+            sel_el.scrollIntoView();
+            return true;
+        }
+        return false;
+    };
+
+    function setSelectedId(id) {
+        var sel_el = document.getElementsByClassName('selected')[0];
+        if (sel_el != undefined && sel_el.id != id) {
+           sel_el.className = 'normal';
+        }
+        sel_el = document.getElementById(id);
+        if (sel_el != undefined) {
+            sel_el.className = 'selected';
+            return true;
+        }
+        return false;
+    };
+    </script>
+
+</head><body>
+
+ 
+
+<div id="2608686410912" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>Test and Score <span class="timestamp">Mon Mar 21 22, 11:02:48</span></h1><div class="content">
+<h2>Settings</h2><ul><b>Sampling type:</b> 5-fold Cross validation<br><b>Target class:</b> Average over classes<br></ul><h2>Scores</h2><table>
+<tbody><tr><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Model</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">AUC</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">CA</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">F1</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Precision</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Recall</th></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Gradient Boosting</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.7721882383366209</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.5221518987341772</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.5059213564494813</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.5059343365871087</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.5221518987341772</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Random Forest</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.7619994056443372</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.544755877034358</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.5393574115562872</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.537704906638551</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.544755877034358</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Naive Bayes</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.7574592202825005</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.4918625678119349</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.4805682735629637</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.47968826712822393</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.4918625678119349</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">SVM</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.7077641678396873</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.4425858951175407</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.4218096579700689</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.4280922246943306</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.4425858951175407</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Tree</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.6684062534382454</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.472875226039783</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.4703165061077667</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.4697963594437543</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.472875226039783</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">AdaBoost</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.6400359789344019</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.472875226039783</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.47650643249719205</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.48126494396234104</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.472875226039783</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">kNN</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.6328177902899979</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.41952983725135623</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.3995042373092141</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.40240750874439335</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.41952983725135623</td></tr></tbody></table></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);">Interesses</textarea></div></div><div id="2608557756128" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>Test and Score <span class="timestamp">Mon Mar 21 22, 11:03:58</span></h1><div class="content">
+<h2>Settings</h2><ul><b>Sampling type:</b> 5-fold Cross validation<br><b>Target class:</b> Average over classes<br></ul><h2>Scores</h2><table>
+<tbody><tr><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Model</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">AUC</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">CA</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">F1</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Precision</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Recall</th></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Gradient Boosting</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9669835817727389</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.903254972875226</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9033901337910927</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9036752839458214</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.903254972875226</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Random Forest</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9616119378441439</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9055153707052441</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9055768243608173</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9056688091305434</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9055153707052441</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Naive Bayes</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.953509795646808</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9000904159132007</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9004119862924743</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.90169931382877</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9000904159132007</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">kNN</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.937424648063985</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8761301989150091</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8761484844273897</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8761682284404619</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8761301989150091</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">SVM</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9341215380059013</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8123869801084991</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8017287154938385</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8412556427813664</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8123869801084991</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">AdaBoost</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.871519757833455</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8738698010849909</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8739868566888279</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8741652100691316</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8738698010849909</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Tree</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8479961104347906</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8725135623869801</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.872657837326736</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8728947528533914</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.8725135623869801</td></tr></tbody></table></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);">Consumo</textarea></div></div><div id="2612202998080" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>Test and Score <span class="timestamp">Mon Mar 21 22, 11:05:55</span></h1><div class="content">
+<h2>Settings</h2><ul><b>Sampling type:</b> 5-fold Cross validation<br><b>Target class:</b> Average over classes<br></ul><h2>Scores</h2><table>
+<tbody><tr><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Model</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">AUC</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">CA</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">F1</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Precision</th><th style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Recall</th></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">SVM</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9995672773179587</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9769439421338155</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9768934603170514</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9771992905409168</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9769439421338155</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Gradient Boosting</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9988555250689917</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9683544303797469</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.968153704562562</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9681522648093668</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9683544303797469</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Random Forest</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9986113741979317</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9629294755877035</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9624394185112343</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9627235015975408</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9629294755877035</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">kNN</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.993007955745457</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9466546112115732</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.945545808214124</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9469076792657742</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9466546112115732</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Naive Bayes</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9646616426221065</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.7956600361663653</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.7931444397842112</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.7980293202565429</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.7956600361663653</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">AdaBoost</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9632470704731138</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9471066907775768</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9471304713148572</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9471582926381259</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9471066907775768</td></tr><tr><td style="color:black;border:0;background:transparent;text-align:left;vertical-align:middle;">Tree</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9565829710296984</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9330922242314648</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9320985520339995</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9320277539029957</td><td style="color:black;border:0;background:transparent;text-align:right;vertical-align:middle;">0.9330922242314648</td></tr></tbody></table></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);">Interesses (clientes cadastrados)</textarea></div></div></body></html>
